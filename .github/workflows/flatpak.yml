@@ -1,6 +1,4 @@
-on:
-  push:
-    branches: [gg.norisk.noriskclient]
+on: workflow_dispatch
 name: CI
 jobs:
   flatpak:
