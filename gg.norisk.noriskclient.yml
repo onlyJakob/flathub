@@ -1,0 +1,42 @@
+id: gg.norisk.noriskclient
+
+runtime: org.gnome.Platform
+runtime-version: '46'
+sdk: org.gnome.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
+  - org.freedesktop.Sdk.Extension.node20
+
+command: noriskclient
+finish-args:
+  - --socket=wayland # Permission needed to show the window
+  - --socket=fallback-x11 # Permission needed to show the window
+  - --device=dri # OpenGL, not necessary for all projects
+  - --share=ipc
+  - --share=network
+
+modules:
+  - name: noriskclient
+    buildsystem: simple
+    sources:
+      - type: git
+        url: https://github.com/onlyJakob/noriskclient-launcher.git
+        tag: tauri-v2
+      - cargo-sources.json
+      - generated-sources.json
+    build-options:
+      append-path: /usr/lib/sdk/node20/bin:/usr/lib/sdk/rust-stable/bin
+      env:
+        CARGO_HOME: /run/build/noriskclient/cargo
+        XDG_CACHE_HOME: /run/build/noriskclient/flatpak-node/cache
+        npm_config_cache: /run/build/noriskclient/flatpak-node/npm-cache
+        npm_config_nodedir: /usr/lib/sdk/node20
+        npm_config_offline: 'true'
+    build-commands:
+      - npm install --offline
+      - cargo --offline fetch --manifest-path src-tauri/Cargo.toml --verbose
+      - npm run tauri build -- --no-bundle -- --offline
+      - install -Dm755 src-tauri/target/release/noriskclient /app/bin/noriskclient
+      - install -Dm644 contrib/gg.norisk.noriskclient.desktop /app/share/applications/gg.norisk.noriskclient.desktop
+      - install -Dm644 src-tauri/icons/128x128@2x.png /app/share/icons/hicolor/256x256/apps/gg.norisk.noriskclient.png
+      
