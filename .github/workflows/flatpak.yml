@@ -14,3 +14,26 @@ jobs:
         bundle: gg.norisk.noriskclient.flatpak
         manifest-path: gg.norisk.noriskclient.yml
         cache-key: flatpak-builder-${{ github.sha }}
+    - uses: actions/upload-artifact@v4
+      with:
+        name: noriskclient-flatpak
+        path: gg.norisk.noriskclient.flatpak
+
+  pre-release:
+    name: "Pre Release"
+    needes: flatpak
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: noriskclient-flatpak
+          path: noriskclient-flatpak
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: |
+            noriskclient-flatpak/gg.norisk.noriskclient.flatpak
