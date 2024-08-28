@@ -36,7 +36,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: noriskclient-flatpak
-        path: *.flatpak
+        path: "*.flatpak"
 
   pre-release:
     name: "Pre Release"
