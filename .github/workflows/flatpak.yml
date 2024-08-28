@@ -45,9 +45,9 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: noriskclient-flatpak
+          pattern: noriskclient-flatpak-*
           path: noriskclient-flatpak
-
+          merge-multiple: true
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -55,7 +55,6 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-            noriskclient-flatpak-x86_64/*.flatpak
-            noriskclient-flatpak-aarch64/*.flatpak
+            noriskclient-flatpak/*.flatpak
 
 
