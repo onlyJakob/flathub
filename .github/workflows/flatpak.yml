@@ -29,13 +29,13 @@ jobs:
         platforms: arm64
     - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
       with:
-        bundle: gg.norisk.noriskclient.flatpak
+        bundle: gg.norisk.noriskclient-${{ matrix.arch }}.flatpak
         manifest-path: gg.norisk.noriskclient.yml
         cache-key: flatpak-builder-${{ github.sha }}
         arch: ${{ matrix.arch }}   
     - uses: actions/upload-artifact@v4
       with:
-        name: noriskclient-flatpak
+        name: noriskclient-flatpak-${{ matrix.arch }}
         path: "*.flatpak"
 
   pre-release:
@@ -55,4 +55,7 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-            noriskclient-flatpak/*.flatpak
+            noriskclient-flatpak-x86_64/*.flatpak
+            noriskclient-flatpak-aarch64/*.flatpak
+
+
