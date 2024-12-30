@@ -1,11 +1,11 @@
 id: gg.norisk.noriskclient
 
 runtime: org.gnome.Platform
-runtime-version: '46'
+runtime-version: '47'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
-  - org.freedesktop.Sdk.Extension.node20
+  - org.freedesktop.Sdk.Extension.node22
 
 command: noriskclient
 finish-args:
@@ -25,12 +25,12 @@ modules:
       - cargo-sources.json
       - generated-sources.json
     build-options:
-      append-path: /usr/lib/sdk/node20/bin:/usr/lib/sdk/rust-stable/bin
+      append-path: /usr/lib/sdk/node22/bin:/usr/lib/sdk/rust-stable/bin
       env:
         CARGO_HOME: /run/build/noriskclient/cargo
         XDG_CACHE_HOME: /run/build/noriskclient/flatpak-node/cache
         npm_config_cache: /run/build/noriskclient/flatpak-node/npm-cache
-        npm_config_nodedir: /usr/lib/sdk/node20
+        npm_config_nodedir: /usr/lib/sdk/node22
         npm_config_offline: 'true'
     build-commands:
       - npm install --offline
