@@ -1,7 +1,7 @@
 on:
   push:
     branches: gg.norisk.noriskclient
-name: CI
+name: Flatpak-CI
 jobs:
   flatpak:
     name: "Flatpak"
