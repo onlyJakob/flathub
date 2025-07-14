@@ -33,8 +33,9 @@ modules:
       append-path: /usr/lib/sdk/node22/bin:/usr/lib/sdk/rust-stable/bin
       env:
         CARGO_HOME: /run/build/noriskclient/cargo
+        YARN_MIRROR: /run/build/noriskclient/flatpak-node/yarn-mirror
     build-commands:
-      - HOME=$PWD yarn config --offline set yarn-offline-mirror $FLATPAK_BUILDER_BUILDDIR/flatpak-node/yarn-mirror
+      - HOME=$PWD yarn config --offline set yarn-offline-mirror $YARN_MIRROR
       - yarn --offline
       - cargo --offline fetch --manifest-path src-tauri/Cargo.toml --verbose
       - yarn tauri build -- --no-bundle -- --offline
