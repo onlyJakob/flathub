@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>gg.norisk.noriskclient</id>
+  
+  <name>NoRiskClient Launcher</name>
+  <summary>A Launcher for the NoRisk Client</summary>
+  
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  
+  <description>
+    <p>
+      NoRiskClient Launcher to install and launch Minecraft with several new features.
+    </p>
+  </description>
+  
+  <launchable type="desktop-id">gg.norisk.noriskclient.desktop</launchable>
+
+  <url type="homepage">https://norisk.gg/</url>
+  <url type="contribute">https://github.com/NoRiskClient/noriskclient-launcher</url>
+  <url type="bugtracker">https://github.com/NoRiskClient/issues</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>
+        https://raw.githubusercontent.com/onlyJakob/flathub/refs/heads/noriskclient-submission/screenshots/home.png
+      </image>
+    </screenshot>
+  </screenshots>
+</component>
