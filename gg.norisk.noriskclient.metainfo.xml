@@ -7,7 +7,11 @@
   
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-only</project_license>
-  
+
+  <developer id="gg.norisk">
+    <name>NoRisk Client Team</name>
+  </developer>
+
   <description>
     <p>
       NoRiskClient Launcher to install and launch Minecraft with several new features.
