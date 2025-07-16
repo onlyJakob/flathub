@@ -30,6 +30,16 @@
       </image>
     </screenshot>
   </screenshots>
+
+  <content_rating type="oars-1.1">
+    <content_attribute id="language-humor">mild</content_attribute>
+    <content_attribute id="social-chat">moderate</content_attribute>
+    <content_attribute id="social-info">moderate</content_attribute>
+    <content_attribute id="social-audio">moderate</content_attribute>
+    <content_attribute id="social-contacts">intense</content_attribute>
+    <content_attribute id="money-purchasing">intense</content_attribute>
+  </content_rating>
+
   <releases>
     <release version="0.6.4" date="2025-06-23">
       <url type="details">https://github.com/NoRiskClient/noriskclient-launcher/releases/tag/v0.6.4</url>
