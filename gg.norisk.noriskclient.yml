@@ -1,11 +1,11 @@
 id: gg.norisk.noriskclient
 
 runtime: org.gnome.Platform
-runtime-version: '47'
+runtime-version: '48'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
-  - org.freedesktop.Sdk.Extension.node22
+  - org.freedesktop.Sdk.Extension.node24
 
 command: noriskclient-launcher-v3
 finish-args:
@@ -30,14 +30,15 @@ modules:
       - type: file
         path: gg.norisk.noriskclient.desktop
     build-options:
-      append-path: /usr/lib/sdk/node22/bin:/usr/lib/sdk/rust-stable/bin
+      append-path: /usr/lib/sdk/node24/bin:/usr/lib/sdk/rust-stable/bin
       env:
         CARGO_HOME: /run/build/noriskclient/cargo
+        XDG_CACHE_HOME: /run/build/noriskclient/flatpak-node/cache
+        YARN_YARN_OFFLINE_MIRROR: /run/build/noriskclient/flatpak-node/yarn-mirror
     build-commands:
-      - HOME=$PWD yarn config --offline set yarn-offline-mirror $FLATPAK_BUILDER_BUILDDIR/flatpak-node/yarn-mirror
       - yarn --offline
-      - cargo --offline fetch --manifest-path src-tauri/Cargo.toml --verbose
-      - yarn tauri build -- --no-bundle -- --offline
+      - cargo --offline fetch --manifest-path src-tauri/Cargo.toml
+      - yarn --offline run tauri build --no-bundle
       - install -Dm755 src-tauri/target/release/noriskclient-launcher-v3 /app/bin/noriskclient-launcher-v3
       - install -Dm644 gg.norisk.noriskclient.desktop /app/share/applications/gg.norisk.noriskclient.desktop
       - install -Dm644 src-tauri/icons/128x128@2x.png /app/share/icons/hicolor/256x256/apps/gg.norisk.noriskclient.png
