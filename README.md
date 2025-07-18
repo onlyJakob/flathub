@@ -6,5 +6,5 @@
 
 - Build and locally install the flatpak:
   ```
-  flatpak-builder build-dir gg.norisk.noriskclient.yml --user --install --force-clean
+  flatpak-builder build-dir gg.norisk.NoRiskClientLauncherV3.yml --user --install --force-clean
   ```
