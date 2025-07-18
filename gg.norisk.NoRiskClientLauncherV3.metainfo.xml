@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>gg.norisk.noriskclient</id>
+  <id>gg.norisk.NoRiskClientLauncherV3</id>
   
   <name>NoRiskClient Launcher</name>
   <summary>A Launcher for the NoRisk Client</summary>
@@ -18,7 +18,7 @@
     </p>
   </description>
   
-  <launchable type="desktop-id">gg.norisk.noriskclient.desktop</launchable>
+  <launchable type="desktop-id">gg.norisk.NoRiskClientLauncherV3.desktop</launchable>
 
   <url type="homepage">https://norisk.gg/</url>
   <url type="contribute">https://github.com/NoRiskClient/noriskclient-launcher</url>

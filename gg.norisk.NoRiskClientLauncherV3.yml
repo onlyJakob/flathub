@@ -1,4 +1,4 @@
-id: gg.norisk.noriskclient
+id: gg.norisk.NoRiskClientLauncherV3
 
 runtime: org.gnome.Platform
 runtime-version: '48'
@@ -26,9 +26,9 @@ modules:
       - cargo-sources.json
       - generated-sources.json
       - type: file
-        path: gg.norisk.noriskclient.metainfo.xml
+        path: gg.norisk.NoRiskClientLauncherV3.metainfo.xml
       - type: file
-        path: gg.norisk.noriskclient.desktop
+        path: gg.norisk.NoRiskClientLauncherV3.desktop
     build-options:
       append-path: /usr/lib/sdk/node24/bin:/usr/lib/sdk/rust-stable/bin
       env:
@@ -40,6 +40,6 @@ modules:
       - cargo --offline fetch --manifest-path src-tauri/Cargo.toml
       - yarn --offline run tauri build --no-bundle
       - install -Dm755 src-tauri/target/release/noriskclient-launcher-v3 /app/bin/noriskclient-launcher-v3
-      - install -Dm644 gg.norisk.noriskclient.desktop /app/share/applications/gg.norisk.noriskclient.desktop
-      - install -Dm644 src-tauri/icons/128x128@2x.png /app/share/icons/hicolor/256x256/apps/gg.norisk.noriskclient.png
-      - install -Dm644 gg.norisk.noriskclient.metainfo.xml /app/share/metainfo/gg.norisk.noriskclient.metainfo.xml
+      - install -Dm644 gg.norisk.NoRiskClientLauncherV3.desktop /app/share/applications/gg.norisk.NoRiskClientLauncherV3.desktop
+      - install -Dm644 src-tauri/icons/128x128@2x.png /app/share/icons/hicolor/256x256/apps/gg.norisk.NoRiskClientLauncherV3.png
+      - install -Dm644 gg.norisk.NoRiskClientLauncherV3.metainfo.xml /app/share/metainfo/gg.norisk.NoRiskClientLauncherV3.metainfo.xml
