@@ -9,14 +9,25 @@ sdk-extensions:
 
 command: noriskclient-launcher-v3
 finish-args:
-  - --socket=wayland # Permission needed to show the window
-  - --socket=fallback-x11 # Permission needed to show the window
-  - --device=dri # OpenGL, not necessary for all projects
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --socket=pulseaudio
+  - --device=dri
   - --share=ipc
   - --share=network
 
 modules:
   - shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json
+  - name: flite
+    buildsystem: autotools
+    config-opts:
+      - --enable-shared
+      - --with-audio=pulseaudio
+    no-parallel-make: true
+    sources:
+      - type: git
+        url: https://github.com/festvox/flite.git
+        tag: v2.2
   - name: noriskclient
     buildsystem: simple
     sources:
