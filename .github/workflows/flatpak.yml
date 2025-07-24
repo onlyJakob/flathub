@@ -23,7 +23,7 @@ jobs:
       - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
         with:
           bundle: gg.norisk.noriskclient-${{ matrix.variant.arch }}.flatpak
-          manifest-path: gg.norisk.noriskclient.yml
+          manifest-path: gg.norisk.NoRiskClientLauncherV3.yml
           cache-key: flatpak-builder-${{ github.sha }}
           arch: ${{ matrix.variant.arch }}
       - uses: actions/upload-artifact@v4
