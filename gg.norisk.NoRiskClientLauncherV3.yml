@@ -33,13 +33,15 @@ modules:
     sources:
       - type: git
         url: https://github.com/NoRiskClient/noriskclient-launcher
-        tag: v3
+        tag: v0.6.8
       - cargo-sources.json
       - generated-sources.json
       - type: file
-        path: gg.norisk.NoRiskClientLauncherV3.metainfo.xml
+        url: https://github.com/NoRiskClient/noriskclient-launcher/raw/5f635b26471e81d559548d93b9de27b2e52d5c94/contrib/gg.norisk.NoRiskClientLauncherV3.metainfo.xml
+        sha256: aca5001febf4f95c01fef2bd71abc93310dc2cae54031e91045e9d50d465867b
       - type: file
-        path: gg.norisk.NoRiskClientLauncherV3.desktop
+        url: https://github.com/NoRiskClient/noriskclient-launcher/raw/5f635b26471e81d559548d93b9de27b2e52d5c94/contrib/gg.norisk.NoRiskClientLauncherV3.desktop
+        sha256: cc2899a00e1d4e34baf1ca3e9af40f5b98ae9a1001973c6bd9f6c1850a6eaa16
     build-options:
       append-path: /usr/lib/sdk/node24/bin:/usr/lib/sdk/rust-stable/bin
       env:
