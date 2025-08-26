@@ -33,7 +33,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/NoRiskClient/noriskclient-launcher
-        tag: v0.6.4
+        tag: v0.6.8
       - cargo-sources.json
       - generated-sources.json
       - type: file
